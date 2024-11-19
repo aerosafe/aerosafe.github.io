@@ -1259,5 +1259,24 @@
       style="position: absolute; overflow: hidden; bottom: 0; left: 0; width: 0; height: 0; z-index: 0; contain: strict"
       aria-hidden="true"
     ></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Add click event listeners to all links with href="#contact"
+          document.querySelectorAll('a[href="#contact"]').forEach(link => {
+              link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  console.log('Contact link clicked');
+                  
+                  const contactSection = document.querySelector('#contact');
+                  if (contactSection) {
+                      console.log('Contact section found');
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                      console.error('Contact section NOT found');
+                  }
+              });
+          });
+      });
+      </script>
   </body>
 </html>
